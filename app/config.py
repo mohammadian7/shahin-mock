@@ -30,7 +30,7 @@ class Settings:
     )
     callback_url: str = os.environ.get(
         "MOCK_CALLBACK_URL",
-        "http://web:8000/api/v1/callbacks/shahin/shahin-mock/",
+        "http://172.16.1.72:8020/api/v1/callbacks/shahin/shahin-mock/",
     )
     callback_delay_sec: float = _float("MOCK_CALLBACK_DELAY_SEC", 2.0)
     inquiry_delay_sec: float = _float("MOCK_INQUIRY_DELAY_SEC", 0.0)
