@@ -1,0 +1,19 @@
+# Standalone deploy on server 172.16.1.72 (port 8005).
+# Usage: docker compose up -d --build
+
+services:
+  shahin-mock:
+    build: .
+    image: shahin-mock:latest
+    restart: unless-stopped
+    ports:
+      - "8005:8005"
+    environment:
+      MOCK_CLIENT_ID: mock-client
+      MOCK_CLIENT_SECRET: mock-secret
+      MOCK_HMAC_SECRET: dev-hmac-secret-change-me-32b
+      MOCK_CALLBACK_SECRET: dev-callback-secret-change-me-32b
+      MOCK_CALLBACK_URL: http://172.16.1.72:8020/api/v1/callbacks/shahin/shahin-mock/
+      MOCK_CALLBACK_DELAY_SEC: "2"
+      MOCK_INQUIRY_DELAY_SEC: "0"
+      MOCK_VERIFY_HMAC: "false"
